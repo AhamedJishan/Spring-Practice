@@ -110,3 +110,69 @@ implements the Application Context:
 		</bean>
   </beans>
   ```
+
+### Injecting Collection types (List, Set, Map)
+- Create a class with Collection types fields, constructors, getters and setters:
+```java
+public class Employee {
+	
+	private String name;
+	private List<String> phones;
+	private Set<String> addresses;
+	private Map<String, String> courses;
+}
+```
+- Configure the beans:
+  ```xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <beans xmlns="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:context="http://www.springframework.org/schema/context"
+         xmlns:p="http://www.springframework.org/schema/p"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans
+                             http://www.springframework.org/schema/beans/spring-beans.xsd
+                             http://www.springframework.org/schema/context
+                             http://www.springframework.org/schema/context/spring-context.xsd">
+		
+		<bean class="com.jishan.practice.springcore.Injecting_Collections.Employee" name="emp1">
+			<property name="name" value="Jishan"/>
+			<property name="phones">
+				<list>
+					<value>901235123</value>
+					<value>23451</value>
+					<value>345</value>
+					<value>12341</value>
+				</list>
+			</property>
+			<property name="addresses">
+				<set>
+					<value>Delhi</value>
+					<value>Lucknow</value>
+					<value>Patna</value>
+				</set>
+			</property>
+			<property name="courses">
+				<map>
+					<entry key="Java" value="1year"/>
+					<entry key="C++" value="1.5year"/>
+					<entry key="Linux" value="0.5year"/>
+				</map>
+			</property>
+		</bean>	
+   </beans>
+  ```
+- Instantiate and use the beans:
+```java
+public class App
+{
+	public static void main( String[] args ) {
+		ApplicationContext context = new ClassPathXmlApplicationContext("com/jishan/practice/springcore/Injecting_Collections/beans.xml");
+		
+		Employee emp1 = context.getBean(Employee.class);
+		System.out.println(emp1.getName());
+		System.out.println(emp1.getPhones());
+		System.out.println(emp1.getAddresses());
+		System.out.println(emp1.getCourses());
+	}
+}
+ ```
