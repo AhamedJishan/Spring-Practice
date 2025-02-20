@@ -2,18 +2,24 @@
 A lightweight dependency injection framework that promotes loose
 coupling in Java applications.
 
-### Spring Modules
+---
+
+## Spring Modules
 - Core, beans, Context, spEL
 - AOP, Aspect, Instrumentation, Messaging
 - Data Access / Integration ( JDBC, ORM, JMS, OXM )
 - Web ( Web, Portlet, Servlet, WebSocket )
 
-### Spring IOC Container
+---
+
+## Spring IOC Container
 A component of Spring framework that maintains the whole lifecyle of the objects.
 - **Role**: Creates, manages, and injects beans.
 - **Needs**: Defined beans and configuration.
 
-### Application Context
+---
+
+## Application Context
 It is an interface that represents our IOC container. It has all
 the features of the old bean factory. It has mainly 3 classes that
 implements the Application Context:
@@ -21,11 +27,15 @@ implements the Application Context:
 - AnnotationConfigApplicationContext
 - FileSystemXMLApplicationContext
 
-### Ways of Injecting Dependency
+---
+
+## Ways of Injecting Dependency
 - Setter injection
 - Constructor injection
 
-### Creating a simple Spring Maven project (Eclipse)
+---
+
+## Creating a simple Spring Maven project (Eclipse)
 - Create a new Maven project (`maven-archetype-quickstart`).
 - Add Spring Context dependency.
 - (Optional) Create a dummy class with getter, setters and constructors.
@@ -72,7 +82,9 @@ implements the Application Context:
 
   ```
 
-### Different ways of property injection:
+---
+
+## Different ways of property injection:
 - `config.xml`
   ```XML
   <?xml version="1.0" encoding="UTF-8"?>
@@ -111,7 +123,9 @@ implements the Application Context:
   </beans>
   ```
 
-### Injecting Collection types (List, Set, Map)
+---
+
+## Injecting Collection types (List, Set, Map)
 - Create a class with Collection types fields, constructors, getters and setters:
 ```java
 public class Employee {
